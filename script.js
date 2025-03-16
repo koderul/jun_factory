@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
   const content = document.getElementById("content");
+  const backButton = document.getElementById("back-button");
 
   function loadContent() {
     const hash = window.location.hash.substring(1) || "home"; // 기본 페이지 설정
-    const page = `pages/${hash}.html`; // 해당하는 HTML 파일을 불러옴
+    const page = `pages/${hash}.html`;
 
     fetch(page)
       .then((response) => {
@@ -11,7 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.text();
       })
       .then((html) => {
-        content.innerHTML = html;
+        content.innerHTML =
+          `<button id="back-button" class="back-button" style="display: ${
+            hash === "home" ? "none" : "block"
+          };">⬅ 뒤로가기</button>` + html;
+        attachBackButton();
       })
       .catch(() => {
         content.innerHTML =
@@ -19,6 +24,19 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
+  function attachBackButton() {
+    const backBtn = document.getElementById("back-button");
+    if (backBtn) {
+      backBtn.addEventListener("click", function () {
+        if (window.history.length > 1) {
+          window.history.back();
+        } else {
+          window.location.hash = "";
+        }
+      });
+    }
+  }
+
   window.addEventListener("hashchange", loadContent);
-  loadContent(); // 처음 로딩할 때 실행
+  loadContent();
 });
