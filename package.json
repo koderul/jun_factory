@@ -1,0 +1,23 @@
+{
+  "name": "jun_factory",
+  "version": "1.0.0",
+  "description": "jun_factory git pages",
+  "main": "script.js",
+  "homepage": "https://koderul.github.io/jun_factory/",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koderul/jun_factory.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/koderul/jun_factory/issues"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
