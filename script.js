@@ -5,14 +5,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const aside = document.querySelector("aside");
   const menuButton = document.querySelector(".menu-button");
   const closeButton = document.querySelector(".close-button");
+  const overlay = document.querySelector(".overlay");
 
-  menuButton.addEventListener("click", function () {
+  function openMenu() {
     aside.classList.add("aside-open");
-  });
+    overlay.classList.add("active");
+  }
 
-  closeButton.addEventListener("click", function () {
+  function closeMenu() {
     aside.classList.remove("aside-open");
-  });
+    overlay.classList.remove("active");
+  }
+
+  menuButton.addEventListener("click", openMenu);
+  closeButton.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
 
   function loadContent() {
     const hash = window.location.hash.substring(1) || "home"; // 기본 페이지 설정
