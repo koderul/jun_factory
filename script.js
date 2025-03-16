@@ -2,6 +2,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const content = document.getElementById("content");
   const backButton = document.getElementById("back-button");
 
+  const aside = document.querySelector("aside");
+  const menuButton = document.querySelector(".menu-button");
+  const closeButton = document.querySelector(".close-button");
+
+  menuButton.addEventListener("click", function () {
+    aside.classList.add("aside-open");
+  });
+
+  closeButton.addEventListener("click", function () {
+    aside.classList.remove("aside-open");
+  });
+
   function loadContent() {
     const hash = window.location.hash.substring(1) || "home"; // 기본 페이지 설정
     const page = `pages/${hash}.html`;
