@@ -1,0 +1,37 @@
+<h2>📆 Daily Goals</h2>
+<p>Daily Goals는 하루 목표를 설정하고 달성할 수 있도록 도와주는 앱입니다.</p>
+<ul>
+    <li>✅ 하루 목표 설정</li>
+    <li>📊 달성률 분석</li>
+    <li>🔔 알림 기능</li>
+</ul>
+
+<!-- 원하는 방식 선택: slider-view or list-view 사용 -->
+<div id="image-container" class="slider-view">
+    <img src="images/daily-goals-1.png" alt="Daily Goals 화면1">
+    <img src="images/daily-goals-2.png" alt="Daily Goals 화면2">
+    <img src="images/daily-goals-3.png" alt="Daily Goals 화면3">
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById("image-container");
+    if (container.classList.contains("slider-view")) {
+        const images = container.querySelectorAll("img");
+        let currentIndex = 0;
+
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.style.display = i === index ? "block" : "none";
+            });
+        }
+
+        showImage(currentIndex);
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }, 3000);
+    }
+});
+</script>
