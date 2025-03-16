@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function loadContent() {
     const hash = window.location.hash.substring(1) || "home"; // 기본 페이지 설정
-    const page = hash === "home" ? "index.html" : `/pages/${hash}.html`; // 해당하는 HTML 파일을 불러옴
+    const page = hash === "home" ? "index.html" : `pages/${hash}.html`; // 해당하는 HTML 파일을 불러옴
 
     fetch(page)
       .then((response) => {
