@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuButton = document.querySelector(".menu-button");
   const closeButton = document.querySelector(".close-button");
   const overlay = document.querySelector(".overlay");
+  const navLinks = document.querySelectorAll("aside nav a");
 
   function openMenu() {
     aside.classList.add("aside-open");
@@ -20,6 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
   menuButton.addEventListener("click", openMenu);
   closeButton.addEventListener("click", closeMenu);
   overlay.addEventListener("click", closeMenu);
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function () {
+      setTimeout(closeMenu, 200); // 부드러운 전환을 위해 살짝 지연
+    });
+  });
 
   function loadContent() {
     const hash = window.location.hash.substring(1) || "home"; // 기본 페이지 설정

@@ -26,7 +26,7 @@ header {
 
 /* 기본적으로 aside는 왼쪽에 위치 */
 aside {
-  position: absolute; /* 기존 fixed에서 변경 */
+  /* position: fixed; */
   left: 0;
   top: 0;
   width: 250px;
